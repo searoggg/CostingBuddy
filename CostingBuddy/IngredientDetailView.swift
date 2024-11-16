@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 
 
+
 struct IngredientDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.isEnabled) var isEnabled
@@ -132,7 +133,7 @@ struct IngredientDetailView: View {
                                     .padding(.leading, -5)
                             }
                             .frame(maxWidth: 72)
-                        Spacer()
+                            Spacer()
                         }
                         .frame(minWidth: 1 * geometry.size.width)
                         //                        .border(Color.yellow)
@@ -159,7 +160,7 @@ struct IngredientDetailView: View {
                             TextField("Usable Weight Percentage", text: $displayWeightPercentageText)
                                 .border(isDisplayWeightPercentageValid ? Color.clear : Color.red) // Red border if invalid
                                 .frame(maxWidth: 75, alignment:.leading)
-                               Spacer()
+                            Spacer()
                             
                             
                         }
@@ -234,7 +235,7 @@ struct IngredientDetailView: View {
                                         .padding(.trailing, 10)
                                     Spacer()
                                 }
-//                                .border(Color.green)
+                                //                                .border(Color.green)
                                 HStack{
                                     
                                     // create a list of allergens including checkboxes to the left of them.
@@ -251,18 +252,35 @@ struct IngredientDetailView: View {
                                 
                             }
                         }
-//                        .border(Color.red)
+                        //                        .border(Color.red)
                         
-                        
-                        HStack {
-                            Text("Notes:")
-                                .font(.headline)
-                                .frame(width: geometry.size.width / 3, alignment: .trailing)
-                                .padding(.trailing, 10)
-                            Spacer()
-                            Text(ingredient.notes)
-                                .frame(maxWidth:.infinity, alignment:.leading)
+                        VStack {
+                            VStack {
+                                HStack {
+                                    Text("Notes:")
+                                        .font(.headline)
+                                        .frame(width: geometry.size.width / 3, alignment: .trailing)
+                                        .padding(.trailing, 10)
+                                    Spacer()
+                                }
+                                .frame(alignment: .top)
+                            }
                             
+                            HStack {
+                                TextEditor(text: $ingredient.notes) // Multiline text box
+                                    .frame(height: 100) // Customize height
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding()
+                                // Light background
+                                    .cornerRadius(10) // Rounded corners
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.gray, lineWidth: 1) // Add a border
+                                    )
+                                
+                                Spacer() // Push content to the top
+                            }
+                            .frame(width: 300, alignment: .center)
                         }
                         
                     }.frame(minWidth: 1 * geometry.size.width)
@@ -378,7 +396,7 @@ struct IngredientDetailView: View {
                         }
                         //                        .border(Color.red)
                         .padding(.bottom, 1)
-                        HStack {
+                        HStack(alignment: .top) {
                             Text("Notes:")
                                 .font(.headline)
                                 .frame(width: geometry.size.width / 3, alignment: .trailing)

@@ -103,7 +103,7 @@ struct IngredientList: View {
             purchaseCost: 0.0,
             convUnit: ConversionTable.weightUnits.first!,
             convWeightValue: 0.0,
-            convWeightUnit: ConversionTable.weightUnits.first,
+            convWeightUnit: ConversionTable.weightUnits.first!,
             weightConversionFactor: nil,
             displayWeightPercentage: 100.0,
             usableWeightPercentage: 100.0,

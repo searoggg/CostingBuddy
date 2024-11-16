@@ -188,23 +188,8 @@ struct IngredientDetailView: View {
                                     .frame(width: geometry.size.width / 3, alignment: .trailing)
                                     .padding(.trailing, 10)
                                 Spacer()
-                            
+                                
                                 HStack {
-//                                    Picker("",selection: $ingredient.unitType) {
-//                                        ForEach(allUnits, id: \.self) { unit in
-//                                            Text(unit)
-//                                        }
-//                                        
-//                                    }
-//                                    .pickerStyle(MenuPickerStyle())
-//                                    .labelsHidden()
-//                                    .focusable(true)
-//                                    .onChange(of: ingredient.unitType) { // Use new `onChange` format
-//                                        isWeightType = weightUnits.contains(ingredient.unitType) // Update based on unit type
-//                                    }
-//                                    .frame(maxWidth: 100, alignment: .leading)
-//                                    .padding(.trailing, 20)
-//                                    Spacer()
                                     Picker("Unit Type", selection: $ingredient.convUnit) {
                                         ForEach(nonWeightUnits, id: \.self) { nwunit in
                                             Text("1 " + nwunit)
@@ -220,7 +205,7 @@ struct IngredientDetailView: View {
                                     Text("in")
                                     Picker("", selection: $ingredient.convWeightUnit) {
                                         ForEach(weightUnits, id: \.self) { nwunit in
-                                             Text(nwunit)
+                                            Text(nwunit)
                                         }
                                     }
                                     .pickerStyle(MenuPickerStyle())
@@ -230,61 +215,8 @@ struct IngredientDetailView: View {
                                     
                                 }
                             }
-                             .frame(minWidth: 1 * geometry.size.width)
-//                                                    .border(Color.yellow)
+                            .frame(minWidth: 1 * geometry.size.width)
                             .padding(.bottom, 1)
-                            
-                    
-
-                                    
-                            
-                            
-//                            HStack {
-//                                Text("Weight Conversion:")
-//                                    .font(.headline)
-//                                    .frame(width: geometry.size.width / 3, alignment: .trailing)
-//                                    .padding(.trailing, 10)
-//                               
-//                            }
-//                            .frame(minWidth: 1 * geometry.size.width)
-//                            //                        .border(Color.yellow)
-//                            .padding(.bottom, 1)
-//                            HStack {
-//                                
-//                                HStack {
-//                                    Text("1")
-//                                    Picker("Unit Type", selection: $ingredient.convUnit) {
-//                                        ForEach(nonWeightUnits, id: \.self) { nwunit in
-//                                            Text("1" + nwunit)
-//                                        }
-//                                    }
-//                                    .pickerStyle(MenuPickerStyle())
-//                                    .labelsHidden()
-//                                }
-//                                .frame(maxWidth: .infinity, alignment: .leading)
-//                                .padding(.trailing, 10)
-//                                .padding(.leading, 150)
-//                                
-//                                HStack {
-//                                    Text("=")
-//                                    TextField("", text: $convWeightValueText)
-//                                        .border(isConvWeightValueValid ? Color.clear : Color.red) // Red border if invalid
-//                                        .frame(maxWidth: 60)
-//                                    Text("in")
-//                                    
-//                                    Picker("", selection: $ingredient.convWeightUnit) {
-//                                        ForEach(weightUnits, id: \.self) { nwunit in
-//                                            Text(nwunit)
-//                                        }
-//                                        
-//                                    }.padding(.trailing, 60)
-//                                }
-//                            }
-//                            .frame(minWidth: 1 * geometry.size.width, maxWidth: .infinity, alignment: .leading)
-//                            
-                            
-                            
-                            
                         }
                         
                         Text("Additional Information")
@@ -302,9 +234,8 @@ struct IngredientDetailView: View {
                                         .padding(.trailing, 10)
                                     Spacer()
                                 }
-                                .border(Color.green)
+//                                .border(Color.green)
                                 HStack{
-//                                    Spacer()
                                     
                                     // create a list of allergens including checkboxes to the left of them.
                                     CollapsibleCheckboxList(
@@ -314,17 +245,15 @@ struct IngredientDetailView: View {
                                     )
                                     .environmentObject(dataModel)
                                     
-//                                    Spacer()
                                 }
                                 .frame(width: 300, alignment: .center)
                                 
                                 
                             }
                         }
-                        .border(Color.red)
+//                        .border(Color.red)
                         
                         
-                        //                            .padding(.bottom, 1)
                         HStack {
                             Text("Notes:")
                                 .font(.headline)
@@ -424,6 +353,7 @@ struct IngredientDetailView: View {
                                     Text("=")
                                     Text("\(String(describing: ingredient.convWeightValue))")
                                     Text("\(String(describing: ingredient.convWeightUnit))")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                     
                                 }
                             }
@@ -490,7 +420,7 @@ struct IngredientDetailView: View {
                     unitsPurchasedText = "\(ingredient.unitsPurchased)"
                     purchaseCostText = "\(ingredient.purchaseCost)"
                     displayWeightPercentageText = "\(ingredient.displayWeightPercentage)"
-                    convWeightValueText = "\(ingredient.convWeightValue ?? 0.0)"
+                    convWeightValueText = "\(ingredient.convWeightValue)"
                     isEditing = true
                 }
             }) {

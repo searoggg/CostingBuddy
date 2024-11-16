@@ -16,9 +16,9 @@ struct Ingredient: Identifiable, Hashable {
     var unitsPurchased: Double
     var unitType: String
     var purchaseCost: Double
-    var convUnit: String?
-    var convWeightValue: Double?
-    var convWeightUnit: String?
+    var convUnit: String
+    var convWeightValue: Double
+    var convWeightUnit: String
     var weightConversionFactor: Double?
     var displayWeightPercentage: Double
     var usableWeightPercentage: Double

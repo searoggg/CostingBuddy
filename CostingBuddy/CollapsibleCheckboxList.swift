@@ -41,7 +41,7 @@ struct CollapsibleCheckboxList: View {
                     }
                 }
                 .padding(.vertical, 0)
-                .border(Color.purple)
+//                .border(Color.purple)
               
             
         }
